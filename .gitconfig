@@ -1,0 +1,24 @@
+[user]
+    email = brstrm@gmail.com
+    name = Tyler Brostrom
+
+[core]
+    editor = vim
+    excludesfile = $HOME/.gitignore
+
+[color]
+    ui = auto
+
+[alias]
+    br = branch
+    ci = commit -v
+    co = checkout
+    df = diff
+    lo = log --oneline --graph
+    st = status
+
+[push]
+    default = simple
+
+[advice]
+    statusHints = false
