@@ -15,6 +15,7 @@ export GOPATH=$HOME/.go
 path=(
     $HOME/.bin
     $N_PREFIX/bin
+    $HOME/.composer/vendor/bin
     $path
 )
 
