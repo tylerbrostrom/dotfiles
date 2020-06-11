@@ -21,7 +21,9 @@ brew install wget
 
 # Install some apps.
 brew cask install 1password
+brew cask install brave-browser
 brew cask install docker
+brew cask install firefox
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install ngrok
