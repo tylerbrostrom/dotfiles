@@ -17,6 +17,9 @@
     lo = log --oneline --graph
     st = status
 
+[pull]
+    ff = only
+
 [push]
     default = simple
 
