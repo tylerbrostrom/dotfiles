@@ -7,6 +7,7 @@ brew install ffmpeg
 brew install figlet
 brew install fzf
 brew install git
+brew install git-lfs
 brew install gh
 brew install htop
 brew install httpie
