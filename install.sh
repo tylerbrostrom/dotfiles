@@ -2,6 +2,7 @@
 
 files=(
     .aliases
+    .Brewfile
     .editorconfig
     .functions
     .gitconfig
