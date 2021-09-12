@@ -11,6 +11,7 @@ export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
 export FZF_DEFAULT_OPTS="--layout=reverse"
 export N_PREFIX=$HOME/.node
 
+typeset -U PATH path # dedupes values in the `path` array
 path=(
     $HOME/.bin
     $N_PREFIX/bin
