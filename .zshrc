@@ -20,9 +20,9 @@ path=(
 )
 
 sources=(
-    ~/.aliases
-    ~/.functions
-    ~/.localrc
+    $HOME/.aliases
+    $HOME/.functions
+    $HOME/.localrc
 )
 
 for file in $sources; do
