@@ -7,7 +7,7 @@ When the 2012 MacBook Pro inevitably fails, these dotfiles will spare you from:
 
 You're welcome, future me.
 
->BTW: With some tweaking, this setup _could_ work on straight-up Linux or Windows (via Windows Subsystem for Linux). Probs would just need to install `zsh` and make _it_ the default shell.
+> BTW: With some tweaking, this setup _could_ work on straight-up Linux or Windows (via Windows Subsystem for Linux). Probs would just need to install `zsh` and make _it_ the default shell.
 
 ## Setting up a new machine
 
@@ -24,13 +24,13 @@ Install Homebrew:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Install and upgrade all dependencies from the global `.Brewfile`:
+Install and upgrade all apps and system dependencies from the global `.Brewfile`:
 
 ```sh
 brew bundle install --global
 ```
 
->BTW: Setting up a Linux machine? Probs need to comment out Mac-specific stuff in `.Brewfile` before running `brew bundle`. Or maybe you don't. I dunno; find out.
+> Worry not: On Linux, `brew bundle` will skip cask installs and other MacOS-specific stuff. No need for conditional `.Brewfiles` 👌.
 
 ### Get Ready for JavaScriptin'
 
@@ -48,8 +48,19 @@ Download and install `pnpm` package manager:
 curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 ```
 
+### Perty Promptin'
+
 Install the ever-so-excellent Pure `zsh` theme:
 
 ```sh
 pnpm add -g pure-prompt
 ```
+
+Close this shell, and open a new one. Voila!
+
+> If Pure prompt fails to install itself, manually run its `postinstall` npm script with `sudo`:
+>
+> ```sh
+> cd $(pnpm root -g)/pure-prompt
+> sudo $(which pnpm) run postinstall
+> ```
