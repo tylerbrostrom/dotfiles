@@ -1,15 +1,30 @@
-# Dotfiles for Cozy Development (on MacOS)
+# Dotfiles for Familiar, Cozy Development
 
-When the 2012 MacBook Pro inevitably fails, these dotfiles will spare you from:
+When your 2012 MacBook Pro inevitably fails, this setup will spare you from:
 
 - Installing apps and system dependencies
-- Configuring `git`, `vim`, `zsh`
+- Configuring `zsh`, `git`, `vim`, `npm`, etc.
 
-You're welcome, future me.
-
-> BTW: With some tweaking, this setup _could_ work on straight-up Linux or Windows (via Windows Subsystem for Linux). Probs would just need to install `zsh` and make _it_ the default shell.
+Wherever you find yourself, be it MacOS, Ubuntu, or Windows (WSL2), it's gonna be okay. **You're welcome, future me.**
 
 ## Setting up a new machine
+
+<details>
+<summary>Setting up a Windows or Linux machine?</summary>
+<p>
+    
+> You're first going to need to install `zsh` and make it your default shell:
+>
+> ```sh
+> sudo apt install zsh
+> chsh -s $(which zsh)
+> ```
+>
+> Close this shell, and open a new one.
+>
+> Enter 'q' to skip the initial setup prompt (the next step will place a `.zshrc` config file in your home directory).
+</details>
+</p>
 
 Symlink dotfiles to home directory:
 ```sh
@@ -30,11 +45,11 @@ Install and upgrade all apps and system dependencies from the global `.Brewfile`
 brew bundle install --global
 ```
 
-> Worry not: On Linux, `brew bundle` will skip cask installs and other MacOS-specific stuff. No need for conditional `.Brewfiles` 👌.
+> On Linux, `brew bundle` will skip cask installs and other MacOS-specific stuff.
 
 ### Get Ready for JavaScriptin'
 
-Download and install the latest version of Node.js via `n` (Node.js version manager previously installed via Homebrew):
+Download and install the latest version of Node.js via `n` (Node.js version manager previously installed with Homebrew):
 
 ```sh
 n lts
@@ -50,17 +65,23 @@ curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
 ### Perty Promptin'
 
-Install the ever-so-excellent Pure `zsh` theme:
+Install the ever-so-excellent `pure-prompt` theme for `zsh`:
 
 ```sh
 pnpm add -g pure-prompt
 ```
 
-Close this shell, and open a new one. Voila!
+Close this shell, and open a new one. Voila, it's perty!
 
-> If Pure prompt fails to install itself, manually run its `postinstall` npm script with `sudo`:
+<details>
+<summary>Did it fail?</summary>
+<p>
+
+> If `pure-prompt` fails to install itself, manually run its `postinstall` npm script with `sudo`:
 >
 > ```sh
 > cd $(pnpm root -g)/pure-prompt
 > sudo $(which pnpm) run postinstall
 > ```
+</p>
+</details>
