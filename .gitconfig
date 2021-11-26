@@ -11,17 +11,15 @@
 
 [alias]
     br = branch
-    cf = cat-file -p
-    cft = cat-file -t
     ci = commit -v
     co = checkout
     df = diff
-    lo = log --oneline --graph
-    lons =  log --oneline --name-status
-    # loo logs the branch’s “actual” commits
-    # useful for topic branches into which features are merged (e.g. develop, main, prod, canary)
-    loo = lo --first-parent
+    df-idx = diff --cached # diff changes staged in the Git Index
+    lo = log --graph --oneline
+    lo-ls = log --oneline --name-status # list commits’ files
+    object = cat-file -p # git object’s properties
     st = status
+    type = cat-file -t # git object’s type
 
 [pull]
     ff = only
