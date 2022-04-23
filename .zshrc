@@ -2,8 +2,6 @@ bindkey -v
 setopt auto_cd
 autoload -Uz compinit promptinit
 compinit -u
-promptinit
-prompt pure
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 export EDITOR=vim
@@ -32,3 +30,5 @@ for file in $sources; do
 done
 
 unset sources file
+
+eval "$(starship init zsh)"
