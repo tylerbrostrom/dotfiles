@@ -1,4 +1,6 @@
 syntax on
+set number
+set relativenumber
 set noswapfile
 set nowrap
 set autoindent
