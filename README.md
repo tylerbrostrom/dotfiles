@@ -49,11 +49,10 @@
 
 ## Management
 
-The `dot` command is an alias for `git` that can be invoked from any directory.
-
-Use it like you’d use git:
+Use `dot`. `dot` is an alias for `git`. It works regardless of the current directory.
 
 ```sh
+# use it like you’d use git:
 dot add -p
 dot push
 
