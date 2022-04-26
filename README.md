@@ -1,6 +1,4 @@
-# dotfiles
-
-## Installation
+# Installation
 
 1. Clone repository
 
@@ -47,16 +45,16 @@
 </p>
 
 
-## Management
+# Management
 
 Use `dot`. `dot` is an alias for `git`. It works regardless of the current directory.
 
 ```sh
-# use it like you’d use git:
+# use it like you’d use git
 dot add -p
 dot push
 
-# works with git aliases!
+# works with .gitconfig aliases too
 dot st
 dot ci
 ```
