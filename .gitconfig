@@ -18,7 +18,7 @@
     lo = log --graph --oneline
     lo-ls = log --oneline --name-status # list commits’ files
     object = cat-file -p # git object’s properties
-    st = status
+    st = status -uno
     type = cat-file -t # git object’s type
 
 [pull]

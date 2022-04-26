@@ -1,4 +1,4 @@
-.dotfiles-repo/ # prevents any weird recursion
+.dotfiles/ # prevents any weird recursion
 
 
 node_modules/

@@ -26,62 +26,41 @@ Wherever you find yourself, be it MacOS, Ubuntu, or Windows (WSL2), it's gonna b
 </details>
 </p>
 
-Symlink dotfiles to home directory:
+### 1. Install dotfiles
+
 ```sh
-./install.sh
+cd $HOME && mkdir .dotfiles && cd .dotfiles
+git clone --bare git@github.com:tylerbrostrom/dotfiles.git .
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' checkout
 ```
 
-### Apps & Dependencies
+>The `.dotfiles/` dirname is arbitrary. If you want to change the directory name, be sure to add it to `.gitignore`
 
-Install Homebrew:
+### 2. Install Homebrew, formulae and casks
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Install and upgrade all apps and system dependencies from the global `.Brewfile`:
-
-```sh
+brew tap homebrew/bundle
 brew bundle install --global
 ```
 
-> On Linux, `brew bundle` will skip cask installs and other MacOS-specific stuff.
-
-### Get Ready for JavaScriptin'
-
-Download and install the latest version of Node.js via `n` (Node.js version manager previously installed with Homebrew):
+### 3. Install pnpm, Node.js
 
 ```sh
-n lts
+curl -fsSL https://get.pnpm.io/install.sh | PNPM_VERSION=7.0.0-rc.8 sh -
+pnpm env use --global lts
 ```
 
->Note @ self: Maybe replace `n` with `pnpm env` in the future (one less tool to worry about).
+>TODO: try installing pnpm via brew as soon as pnpm@7 is available
 
-Download and install `pnpm` package manager:
+## Managing dotfiles
+
+The `dot` command is an alias for `git` that can be invoked from any directory.
+
+Use it like you’d use git:
 
 ```sh
-curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+dot status
+dot commit
+dot add -p
 ```
-
-### Perty Promptin'
-
-Install the ever-so-excellent `pure-prompt` theme for `zsh`:
-
-```sh
-pnpm add -g pure-prompt
-```
-
-Close this shell, and open a new one. Voila, it's perty!
-
-<details>
-<summary>Did it fail?</summary>
-<p>
-
-> If `pure-prompt` fails to install itself, manually run its `postinstall` npm script with `sudo`:
->
-> ```sh
-> cd $(pnpm root -g)/pure-prompt
-> sudo $(which pnpm) run postinstall
-> ```
-</p>
-</details>

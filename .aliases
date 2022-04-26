@@ -1,9 +1,8 @@
-# manage dotfiles. see guide: https://www.atlassian.com/git/tutorials/dotfiles
-alias dotfiles="`which git` --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME"
-
-alias cleanup=" brew cleanup --prune=all"
-
+alias brew-check="brew bundle check --global --verbose"
+alias brew-sync="brew bundle install --global --no-upgrade --cleanup"
+alias brew-upgrade="brew bundle install --global"
 alias cp="cp -i"
+alias dot="`which git` --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias exa="exa -lah --git --group-directories-first --no-user --no-time --octal-permissions --no-permissions"
 alias grep="grep -i --color=auto"
 alias ls="ls -AGF1"
