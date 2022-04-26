@@ -1,5 +1,5 @@
 # manage dotfiles. see guide: https://www.atlassian.com/git/tutorials/dotfiles
-alias dotfiles="`which git` --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias dotfiles="`which git` --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME"
 
 alias cleanup=" brew cleanup --prune=all"
 
