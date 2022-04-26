@@ -1,3 +1,6 @@
+.dotfiles-repo/ # prevents any weird recursion
+
+
 node_modules/
 .DS_Store
 ._*

@@ -6,6 +6,10 @@ function github() {
     open "https://github.com/$(git remote get-url origin | cut -d ':' -f 2 | cut -d '.' -f 1)"
 }
 
-function cleanup() {
-    brew cleanup --prune=all
+function deps() {
+    echo '\nChecking ~/.Brewfile…\n'
+    brew bundle --global --verbose check
+
+    echo '\nChecking for unneeded forulae…\n'
+    brew autoremove --dry-run
 }

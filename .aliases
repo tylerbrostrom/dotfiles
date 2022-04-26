@@ -1,3 +1,8 @@
+# manage dotfiles. see guide: https://www.atlassian.com/git/tutorials/dotfiles
+alias dotfiles="`which git` --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+alias cleanup=" brew cleanup --prune=all"
+
 alias cp="cp -i"
 alias exa="exa -lah --git --group-directories-first --no-user --no-time --octal-permissions --no-permissions"
 alias grep="grep -i --color=auto"

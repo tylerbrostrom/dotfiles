@@ -1,9 +1,9 @@
 [user]
-    email = brstrm@gmail.com
+	email = 5232237+tylerbrostrom@users.noreply.github.com
     name = Tyler Brostrom
 
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = $HOME/.gitignore
 
 [color]
@@ -13,7 +13,7 @@
     br = branch
     ci = commit -v
     co = checkout
-    df = diff
+    df = diff -- ':!package-lock.json' ':!yarn.lock'
     df-idx = diff --cached # diff changes staged in the Git Index
     lo = log --graph --oneline
     lo-ls = log --oneline --name-status # list commits’ files
