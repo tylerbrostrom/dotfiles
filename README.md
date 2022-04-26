@@ -10,7 +10,7 @@
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' checkout
     ```
 
-    >The `.dotfiles/` dirname is arbitrary. If you want to change the directory name, be sure to add it to `.gitignore`
+    >The `.dotfiles/` dirname is arbitrary. You can change it, but be sure to add it to `.gitignore`.
 
 2. Install Homebrew, formulae and casks
 
