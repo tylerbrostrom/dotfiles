@@ -5,7 +5,7 @@
     ```sh
     cd $HOME && mkdir .dotfiles && cd .dotfiles
     git clone --bare git@github.com:tylerbrostrom/dotfiles.git .
-    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' checkout
+    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
     ```
 
     >The `.dotfiles/` dirname is arbitrary. You can change it, but be sure to add it to `.gitignore`.
