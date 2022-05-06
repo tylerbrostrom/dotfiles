@@ -1,12 +1,35 @@
 function path() {
-    echo -e ${PATH//:/\\n}
+    print -l $path
 }
 
 function github() {
     open "https://github.com/$(git remote get-url origin | cut -d ':' -f 2 | cut -d '.' -f 1)"
 }
 
-function brew-cleanup() {
-    brew cleanup --prune=all
-    brew autoremove
+function beer() {
+    case "$1" in
+    '')
+        brew bundle install --global --no-upgrade
+        ;;
+    'up')
+        brew bundle install --global
+        ;;
+    'check')
+        brew bundle check --global --verbose
+        ;;
+    'clean')
+        brew bundle cleanup --global --force --zap
+        brew cleanup --prune=all
+        brew autoremove
+        ;;
+    *)
+        print -P "beer - Manage Homebrew dependencies, as per ~/.Brewfile\n"
+        print -P "%F{yellow}USAGE:"
+        print -P -aC 2 \
+            "%F{green}beer"         "%fInstall dependencies" \
+            "%F{green}beer up"      "%fUpgrade dependencies" \
+            "%F{green}beer check"     "%fCheck for missing dependencies" \
+            "%F{green}beer clean"   "%fUninstall dependencies not listed in ~/.Brewfile"
+        ;;
+    esac
 }

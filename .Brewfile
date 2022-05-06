@@ -1,10 +1,4 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
-
-tap "cloudflare/cloudflare"
-
+brew "cloudflare/cloudflare/cloudflared"
 brew "curl"
 brew "deno"
 brew "dog"
@@ -27,18 +21,24 @@ brew "neofetch"
 brew "nmap"
 brew "nvim"
 brew "pandoc"
-# brew "pnpm"
+brew "pnpm"
 brew "ripgrep"
 brew "rustup"
 brew "starship"
 brew "tree"
 brew "wget"
 brew "youtube-dl"
-brew "cloudflare/cloudflare/cloudflared"
 
-# set arguments for all 'brew install --cask' commands
-cask_args appdir: "~/Applications", require_sha: true
+# these casks DO NOT have checksums
+# there’s no way to negate `require_sha`
+# so they’re listed here, before `require_sha` is declared
+cask "cloudflare-warp"
+cask "spotify"
 
+cask_args require_sha: true
+
+# these casks have checksums
+cask "1password", args: { appdir: "/Applications" }
 cask "brave-browser"
 cask "docker"
 cask "imagealpha"
@@ -46,11 +46,9 @@ cask "imageoptim"
 cask "kitty"
 cask "qlmarkdown"
 cask "rectangle"
-cask "spotify"
 cask "syntax-highlight"
 cask "visual-studio-code"
 cask "vlc"
 
-# mas "1Password 7", id: 1333542190
 mas "GarageBand", id: 682658836
 mas "MindNode", id: 1289197285

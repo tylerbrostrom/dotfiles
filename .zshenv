@@ -10,8 +10,7 @@ export PNPM_HOME=$HOME/Library/pnpm
 export N_PRESERVE_NPM=1 
 export N_PREFIX=$HOME/.node
 
-
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_GITHUB_API=1
-export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications --require-sha"
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 
