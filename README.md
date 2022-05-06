@@ -1,31 +1,38 @@
-# Installation
+## Setup
 
-1. Clone repository
+1. Install dotfiles
 
     ```sh
-    cd $HOME && mkdir .dotfiles && cd .dotfiles
+    # clone as a bare repository
+    mkdir $HOME/.dotfiles && cd $_
     git clone --bare git@github.com:tylerbrostrom/dotfiles.git .
-    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
     ```
 
-    >The `.dotfiles/` dirname is arbitrary. You can change it, but be sure to add it to `.gitignore`.
+    ```sh
+    # checkout dotfiles into $HOME
+    git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
+    ```
 
-2. Install Homebrew, formulae and casks
+    >The dirname, `.dotfiles/`, is arbitrary. Wanna change it? Be sure to add the new dirname to `.gitignore`.
+
+2. Close the shell, and open a new one
+
+3. Install dependencies & apps
 
     ```sh
+    # install Homebrew package manager
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew tap homebrew/bundle
-    brew bundle install --global
     ```
 
-3. Install pnpm, Node.js
+    ```sh
+    # install everything listed in ~/.Brewfile
+    beer
+    ```
 
     ```sh
-    curl -fsSL https://get.pnpm.io/install.sh | PNPM_VERSION=7.0.0-rc.8 sh -
+    # install Node.js
     pnpm env use --global lts
     ```
-
-    >TODO: try installing pnpm via brew as soon as pnpm@7 is available
 
 <details>
 <summary>Setting up a Windows or Linux machine?</summary>
@@ -45,16 +52,24 @@
 </p>
 
 
-# Management
+## Development
 
-Use `dot`. `dot` is an alias for `git`. It works regardless of the current directory.
+Use `dot` to manage dotfiles.
+
+>`dot` is just a zsh alias for `git` that works from any directory.
 
 ```sh
 # use it like you’d use git
 dot add -p
-dot push
+dot push origin main
 
-# works with .gitconfig aliases too
+# git aliases still work
 dot st
 dot ci
 ```
+
+### Updating Dependencies
+
+Use `beer` to manage Homebrew dependencies.
+
+>Run `beer -h` for a rundown of all the subcommands.
