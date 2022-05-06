@@ -3,7 +3,7 @@ export EDITOR=nvim
 export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
-export DENO_INSTALL=$HOME/.deno
+export DENO_INSTALL_ROOT=$HOME/.deno
 export PNPM_HOME=$HOME/Library/pnpm
 
 # preserves `npm` version between `node` versions

@@ -7,7 +7,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 typeset -aU path
 path=(
     $HOME/.bin
-    $DENO_INSTALL/bin
+    $DENO_INSTALL_ROOT/bin
     $HOME/.cargo/bin
     $PNPM_HOME
     $HOME/.composer/vendor/bin
