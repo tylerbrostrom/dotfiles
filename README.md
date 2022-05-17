@@ -26,7 +26,7 @@
 
     ```sh
     # install everything listed in ~/.Brewfile
-    beer
+    beer install
     ```
 
     ```sh

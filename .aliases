@@ -1,5 +1,6 @@
+#!/bin/zsh
+
 alias cp="cp -i"
-alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias exa="exa -lah --git --group-directories-first --no-user --no-time --octal-permissions --no-permissions"
 alias grep="grep -i --color=auto"
 alias ls="ls -AGF1"
