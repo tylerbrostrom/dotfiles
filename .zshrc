@@ -1,31 +1,23 @@
 bindkey -v
 setopt auto_cd
-autoload -Uz compinit promptinit
-compinit -u
+autoload -Uz compinit; compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-typeset -aU path
-path=(
-    $HOME/.bin
-    $DENO_INSTALL_ROOT/bin
-    $HOME/.cargo/bin
-    $PNPM_HOME
-    $HOME/.composer/vendor/bin
-    $path
-)
+# anon functions are auto-executed
+function {
+    local sources file
 
-sources=(
-    $HOME/.aliases
-    $HOME/.functions
-    $HOME/.localrc
-)
+    sources=(
+        $HOME/.aliases
+        $HOME/.functions
+        $HOME/.localrc
+    )
 
-for file in $sources; do
-    if [ -f $file ]
-        then source $file
-    fi
-done
-
-unset sources file
+    for file in $sources; do
+        if [ -f $file ]
+            then source $file
+        fi
+    done
+}
 
 eval "$(starship init zsh)"

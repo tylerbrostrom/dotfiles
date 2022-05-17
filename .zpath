@@ -1,0 +1,8 @@
+path=(
+    $HOME/.bin
+    $DENO_INSTALL_ROOT/bin
+    $HOME/.cargo/bin
+    $PNPM_HOME
+    $HOME/.composer/vendor/bin
+    $path
+)
