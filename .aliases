@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 alias cp="cp -i"
-alias exa="exa -lah --git --group-directories-first --no-user --no-time --octal-permissions --no-permissions"
+alias ex="exa -lah --git --group-directories-first --no-user --no-time --octal-permissions --no-permissions"
 alias grep="grep -i --color=auto"
 alias ls="ls -AGF1"
 alias mkdir="mkdir -p"
