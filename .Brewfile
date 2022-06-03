@@ -1,3 +1,4 @@
+brew "bat"
 brew "cloudflare/cloudflare/cloudflared"
 brew "curl"
 brew "deno"
