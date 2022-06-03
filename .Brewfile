@@ -1,5 +1,6 @@
 brew "bat"
 brew "cloudflare/cloudflare/cloudflared"
+brew "coreutils"
 brew "curl"
 brew "deno"
 brew "dog"
