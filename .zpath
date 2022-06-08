@@ -2,6 +2,7 @@ path=(
     $HOME/.bin
     $DENO_INSTALL_ROOT/bin
     $HOME/.cargo/bin
+    $GOPATH/bin
     $PNPM_HOME
     $path
 )
