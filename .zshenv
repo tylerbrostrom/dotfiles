@@ -1,25 +1,24 @@
+# Shell
 export ZDOTDIR=$HOME/.config/zsh
 
+# Common
 export EDITOR=nvim
+export PAGER=less
 
-export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
-export FZF_DEFAULT_OPTS="--layout=reverse"
-
-export GOPATH=$HOME/.go
-export DENO_INSTALL_ROOT=$HOME/.deno
-export PNPM_HOME=$HOME/Library/pnpm
-
-# preserves `npm` version between `node` versions
-export N_PRESERVE_NPM=1
-export N_PREFIX=$HOME/.node
-
+# Tools
+export DENO_INSTALL_ROOT=$HOME/Library/deno # referenced by $path
+export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git'
+export FZF_DEFAULT_OPTS=--layout=reverse
+export GOPATH=$HOME/dev/go # referenced by $path
+export HOMEBREW_CASK_OPTS=--appdir=$HOME/Applications
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_GITHUB_API=1
-export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
+export LESS=-isSR
+export PNPM_HOME=$HOME/Library/pnpm # referenced by $path
 
-# $path
+# Setting $path
 #
-# why can’t we just set $path here, in ~/.zshenv, and call it a day?
-# on MacOS, /etc/zprofile annoyingly meddles with $path order
-# we fix $path order by setting $path inside $ZDOTDIR/.zprofile
+# Q: Why can’t we simply, unconditionally set $path here, in ~/.zshenv, and call it a day?
+# A: On MacOS, /etc/zprofile (which only loads for login shells) annoyingly meddles with $path order.
+#    We fix $path order by setting $path inside $ZDOTDIR/.zprofile (which loads after /etc/zprofile).
 if [[ ! -o login ]]; then source $ZDOTDIR/conf.d/path; fi
