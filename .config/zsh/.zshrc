@@ -3,14 +3,12 @@ setopt auto_cd
 autoload -Uz compinit; compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# anon functions are auto-executed
 function {
     local sources file
 
     sources=(
-        $HOME/.aliases
-        $HOME/.functions
-        $HOME/.localrc
+        $ZDOTDIR/conf.d/aliases
+        $ZDOTDIR/conf.d/functions
     )
 
     for file in $sources; do

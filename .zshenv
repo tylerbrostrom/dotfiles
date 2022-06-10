@@ -1,3 +1,5 @@
+export ZDOTDIR=$HOME/.config/zsh
+
 export EDITOR=nvim
 
 export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
@@ -15,7 +17,9 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_GITHUB_API=1
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 
-# sets $path for non-login shells
-if [[ $SHLVL == 1 && ! -o LOGIN ]]; then
-    source $HOME/.zpath
-fi
+# $path
+#
+# why can’t we just set $path here, in ~/.zshenv, and call it a day?
+# on MacOS, /etc/zprofile annoyingly meddles with $path order
+# we fix $path order by setting $path inside $ZDOTDIR/.zprofile
+if [[ ! -o login ]]; then source $ZDOTDIR/conf.d/path; fi
