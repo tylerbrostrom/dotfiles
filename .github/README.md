@@ -25,32 +25,9 @@
     ```
 
     ```sh
-    # install everything listed in ~/.Brewfile
+    # install dependencies specified by ~/.Brewfile
     beer install
     ```
-
-    ```sh
-    # install Node.js
-    pnpm env use --global lts
-    ```
-
-<details>
-<summary>Setting up a Windows or Linux machine?</summary>
-<p>
-    
-> You're first going to need to install `zsh` and make it your default shell:
->
-> ```sh
-> sudo apt install zsh
-> chsh -s $(which zsh)
-> ```
->
-> Close this shell, and open a new one.
->
-> Enter 'q' to skip the initial setup prompt (the next step will place a `.zshrc` config file in your home directory).
-</details>
-</p>
-
 
 ## Development
 
