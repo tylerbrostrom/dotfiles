@@ -1,15 +1,12 @@
-#!/bin/zsh
-
 alias cp="cp -i"
 alias ex="exa -lah --git --group-directories-first --no-user --no-time --octal-permissions --no-permissions"
 alias grep="grep -i --color=auto"
-alias less="less -i"
 alias ls="gls -AF1 --color=auto --hyperlink=auto"
 alias mkdir="mkdir -p"
 alias mv="mv -i"
 alias rg="rg --smart-case"
 alias sqlite="$(brew --prefix)/opt/sqlite/bin/sqlite3"
 alias top="htop"
-alias tree="tree -aF -I '.git|node_modules' | less"
+alias tree="tree -aF -I '.git|node_modules'"
 alias vim="nvim"
 alias which="which -a"
