@@ -1,3 +1,6 @@
+tap "cloudflare/cloudflare"
+tap "homebrew/cask"
+
 brew "bat"
 brew "cloudflare/cloudflare/cloudflared"
 brew "coreutils"
