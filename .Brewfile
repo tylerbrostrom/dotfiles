@@ -25,7 +25,7 @@ brew "just"
 brew "mas"
 brew "neofetch"
 brew "nmap"
-brew "nvim"
+brew "nvim", args: ["HEAD"]
 brew "pandoc"
 brew "pnpm"
 brew "ripgrep"
