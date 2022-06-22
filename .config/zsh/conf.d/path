@@ -1,8 +1,8 @@
 typeset -U path
 path=(
-    $DENO_INSTALL_ROOT/bin
-    $HOME/.cargo/bin
-    $GOPATH/bin
-    $PNPM_HOME
     $path
+    $CARGO_HOME/bin
+    $DENO_INSTALL_ROOT/bin
+    $PNPM_HOME
+    $GOPATH/bin
 )

@@ -6,6 +6,7 @@ export EDITOR=nvim
 export PAGER=less
 
 # Tools
+export CARGO_HOME=$HOME/Library/cargo # referenced by $path
 export DENO_INSTALL_ROOT=$HOME/Library/deno # referenced by $path
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git'
 export FZF_DEFAULT_OPTS=--layout=reverse
