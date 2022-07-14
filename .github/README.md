@@ -2,15 +2,18 @@
 
 1. Install dotfiles
 
+    Clone as a bare repository
+
     ```sh
-    # clone as a bare repository
     mkdir $HOME/.dotfiles && cd $_
     git clone --bare git@github.com:tylerbrostrom/dotfiles.git .
     ```
 
+    Checkout dotfiles into $HOME
+
     ```sh
-    # checkout dotfiles into $HOME
     git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
+    git --git-dir=$HOME/.dotfiles --work-tree=$HOME submodule update --init --recursive
     ```
 
     >The dirname, `.dotfiles/`, is arbitrary. Wanna change it? Be sure to add the new dirname to `.gitignore`.
@@ -29,6 +32,10 @@
     beer install
     ```
 
+### Install Fonts
+
+- [MonoLisa](https://www.monolisa.dev)
+- [NerdFont Symbols](https://github.com/ryanoasis/nerd-fonts/blob/196f78789a3ee9e5ff9d0f2cdc9b6c3fd41d6e8e/patched-fonts/NerdFontsSymbolsOnly/complete/Symbols-2048-em%20Nerd%20Font%20Complete.ttf)
 ## Development
 
 Use `dot` to manage dotfiles.
