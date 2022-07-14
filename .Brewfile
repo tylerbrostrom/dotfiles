@@ -58,5 +58,5 @@ cask "syntax-highlight"
 cask "visual-studio-code"
 cask "vlc"
 
-mas "GarageBand", id: 682658836
-mas "MindNode", id: 1289197285
+# mas "GarageBand", id: 682658836
+# mas "MindNode", id: 1289197285
