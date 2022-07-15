@@ -41,6 +41,7 @@ brew "youtube-dl"
 # there’s no way to negate `require_sha`
 # so they’re listed here, before `require_sha` is declared
 cask "cloudflare-warp"
+cask "sizzy"
 cask "spotify"
 
 cask_args require_sha: true
