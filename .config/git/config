@@ -1,0 +1,43 @@
+[user]
+	email = 5232237+tylerbrostrom@users.noreply.github.com
+  name = Tyler Brostrom
+
+[core]
+  editor = $EDITOR
+
+[color]
+  ui = auto
+
+[alias]
+  br = branch
+  ci = commit -v
+  co = checkout
+  df = diff -- ':!package-lock.json' ':!yarn.lock'
+  df-idx = diff --cached # diff changes staged in the Git Index
+  lo = log --graph --oneline
+  lo-ls = log --oneline --name-status # list commits’ files
+  object = cat-file -p # git object’s properties
+  st = status
+  type = cat-file -t # git object’s type
+
+[pull]
+  ff = only
+
+[push]
+  default = simple
+  autoSetupRemote = true
+
+[advice]
+  statusHints = false
+
+[init]
+	defaultBranch = main
+
+[checkout]
+	defaultRemote = origin
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
