@@ -27,30 +27,33 @@ function beer() {
     install)
         brew bundle install --global --no-upgrade
         ;;
-    check)
-        brew bundle check --global --verbose
-        brew outdated
+    up)
+        brew bundle install --global
         ;;
-    scrub)
+    status)
+        print -P "Running %F{green}brew bundle check%f\n";
+        brew bundle check --global --verbose
+        print -P "\nRunning %F{green}brew outdated%f\n";
+        brew outdated
+        print -P "\nRunning %F{green}brew autoremove --dry-run%f\n";
+        brew autoremove --dry-run
+        ;;
+    clean)
         brew cleanup -s
+        brew autoremove
         ;;
     sync)
         brew bundle install --global --no-upgrade --cleanup --zap
-        brew autoremove
-        ;;
-    up)
-        brew bundle install --global
-        brew upgrade
         ;;
     *)
         print -P "beer - Manage Homebrew dependencies specified by ~/.Brewfile\n"
         print -P "%F{yellow}USAGE:"
         print -P -aC 2 \
             "%F{green}beer install"     "%fInstall dependencies" \
-            "%F{green}beer check"       "%fCheck for outdated/missing dependencies" \
             "%F{green}beer up"          "%fUpgrade dependencies" \
+            "%F{green}beer status"      "%fCheck for outdated, missing, or extraneous dependencies" \
             "%F{green}beer sync"        "%fSame as install (additionally removing unspecified dependencies)" \
-            "%F{green}beer scrub"       "%fScrubs the Homebrew cache"
+            "%F{green}beer clean"       "%fRemoves extraneous dependencies. Scrubs the Homebrew cache"
         ;;
     esac
 }
