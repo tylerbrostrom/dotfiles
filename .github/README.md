@@ -71,8 +71,8 @@ beer - Manage Homebrew dependencies specified by ~/.Brewfile
 
 USAGE:
 beer install  Install dependencies
-beer check    Check for outdated/missing dependencies
 beer up       Upgrade dependencies
+beer status   Check for outdated, missing, or extraneous dependencies
 beer sync     Same as install (additionally removing unspecified dependencies)
-beer scrub    Scrubs the Homebrew cache
+beer clean    Removes extraneous dependencies. Scrubs the Homebrew cache
 ```
