@@ -76,3 +76,7 @@ beer status   Check for outdated, missing, or extraneous dependencies
 beer sync     Same as install (additionally removing unspecified dependencies)
 beer clean    Removes extraneous dependencies. Scrubs the Homebrew cache
 ```
+
+## Acknowledgements
+
+- [@durdn](https://twitter.com/durdn) for the write-up: [How to store dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
