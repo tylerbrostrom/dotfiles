@@ -10,7 +10,7 @@ export CARGO_HOME=$HOME/Library/cargo # referenced by $path
 export DENO_INSTALL_ROOT=$HOME/Library/deno # referenced by $path
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git'
 export FZF_DEFAULT_OPTS=--layout=reverse
-export GOPATH=$HOME/dev/go # referenced by $path
+export GOPATH=$HOME/.go # referenced by $path
 export HOMEBREW_AUTO_UPDATE_SECS=900
 export HOMEBREW_CASK_OPTS=--appdir=$HOME/Applications
 export HOMEBREW_CLEANUP_MAX_AGE_DAYS=30
