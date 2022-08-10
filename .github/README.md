@@ -33,7 +33,7 @@
 
     ```sh
     zsh
-    beer install
+    beer up
     ```
 
 5. Install Fonts
@@ -67,14 +67,14 @@ Instead of `git`, use `dot`.
 Instead of `brew`, use `beer`.
 
 ```
-beer - Manage Homebrew dependencies specified by ~/.Brewfile
+beer - Manage global Homebrew dependencies specified by ~/.Brewfile
 
 USAGE:
-beer install  Install dependencies
-beer up       Upgrade dependencies
-beer status   Check for outdated, missing, or extraneous dependencies
-beer sync     Same as install (additionally removing unspecified dependencies)
-beer clean    Removes extraneous dependencies. Scrubs the Homebrew cache
+beer up       Upgrade outdated deps; install missing deps
+beer sync     Remove unspecified deps; install missing deps
+beer check    Check for outdated, missing, or unspecified deps
+beer ls       List deps by type: formula, cask, tap
+beer ls-tree  List formulas and their dependencies
 ```
 
 ## Acknowledgements

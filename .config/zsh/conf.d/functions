@@ -24,36 +24,38 @@ function dot() {
 
 function beer() {
     case "$1" in
-    install)
-        brew bundle install --global --no-upgrade
-        ;;
     up)
         brew bundle install --global
-        ;;
-    status)
-        print -P "Running %F{green}brew bundle check%f\n";
-        brew bundle check --global --verbose
-        print -P "\nRunning %F{green}brew outdated%f\n";
-        brew outdated
-        print -P "\nRunning %F{green}brew autoremove --dry-run%f\n";
-        brew autoremove --dry-run
-        ;;
-    clean)
-        brew cleanup -s
-        brew autoremove
         ;;
     sync)
         brew bundle install --global --no-upgrade --cleanup --zap
         ;;
+    check)
+        print -P "%F{yellow}OUTDATED / MISSING DEPS:%f"
+        brew bundle check --global --verbose
+        print -P "\n%F{yellow}UNSPECIFIED DEPS:%f"
+        brew bundle cleanup --global
+        ;;
+    ls)
+        print -P "%F{yellow}FORMULAS:%f"
+        brew bundle list --global --formula
+        print -P "\n%F{yellow}CASKS:%f"
+        brew bundle list --global --cask
+        print -P "\n%F{yellow}TAPS:%f"
+        brew bundle list --global --tap
+        ;;
+    ls-tree)
+        brew bundle list --global --formula | xargs brew deps --installed --formula --tree --include-requirements
+        ;;
     *)
-        print -P "beer - Manage Homebrew dependencies specified by ~/.Brewfile\n"
+        print -P "beer - Manage global Homebrew dependencies specified by ~/.Brewfile\n"
         print -P "%F{yellow}USAGE:"
         print -P -aC 2 \
-            "%F{green}beer install"     "%fInstall dependencies" \
-            "%F{green}beer up"          "%fUpgrade dependencies" \
-            "%F{green}beer status"      "%fCheck for outdated, missing, or extraneous dependencies" \
-            "%F{green}beer sync"        "%fSame as install (additionally removing unspecified dependencies)" \
-            "%F{green}beer clean"       "%fRemoves extraneous dependencies. Scrubs the Homebrew cache"
+            "%F{green}beer up%f"          "Upgrade outdated deps; install missing deps" \
+            "%F{green}beer sync%f"        "Remove unspecified deps; install missing deps" \
+            "%F{green}beer check%f"       "Check for outdated, missing, or unspecified deps" \
+            "%F{green}beer ls%f"          "List deps by type: formula, cask, tap" \
+            "%F{green}beer ls-tree%f"     "List formulas and their dependencies"
         ;;
     esac
 }
