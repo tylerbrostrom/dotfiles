@@ -13,9 +13,12 @@ export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git'
 export FZF_DEFAULT_OPTS=--layout=reverse
 export GOPATH=$HOME/.go # referenced by $path
 export HOMEBREW_AUTO_UPDATE_SECS=900
+export HOMEBREW_AUTOREMOVE=1
+export HOMEBREW_BAT=1
 export HOMEBREW_CASK_OPTS=--appdir=$HOME/Applications
 export HOMEBREW_CLEANUP_MAX_AGE_DAYS=30
 export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
 export LESS=-isSR
 export PNPM_HOME=$HOME/.pnpm # referenced by $path
 
