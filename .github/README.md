@@ -45,7 +45,7 @@
 
 Instead of `git`, use `dot`.
 
-- It’s _just_ an alias `git` (where `GIT_DIR=$HOME/.dotfiles` and `GIT_WORK_TREE=$HOME`)
+- It’s _just_ an alias for `git` (where `GIT_DIR=$HOME/.dotfiles` and `GIT_WORK_TREE=$HOME`)
 
     ```sh
     dot status
