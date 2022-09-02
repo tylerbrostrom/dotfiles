@@ -10,19 +10,16 @@
 ## Setup
 
 1. Clone this repository
-    
+
     ```sh
     GIT_DIR=$HOME/.dotfiles git clone --bare https://github.com/tylerbrostrom/dotfiles.git
     ```
 
-2. Checkout files and submodules
+2. Checkout files
 
     ```sh
-    GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME git checkout && git submodule update --init --recursive
+    GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME git checkout
     ```
-    
-    >Neovim config is included as a submodule (https://github.com/tylerbrostrom/nvim-config)
-    
 3. Install Homebrew
 
     ```sh
