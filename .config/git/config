@@ -1,34 +1,41 @@
+# Watch out for configs that land in ~/.gitconfig still
+
 [user]
-	email = 5232237+tylerbrostrom@users.noreply.github.com
-  name = Tyler Brostrom
-
+	# https://stackoverflow.com/questions/42553685/setting-git-username-and-email-without-using-gitconfig
+[include]
+	# The values in the [user] section are set here
+	path = ~/.config/dotfiles.local/git/config.local
 [core]
-  editor = $EDITOR
-
-[color]
-  ui = auto
-
-[alias]
-  br = branch
-  ci = commit -v
-  co = checkout
-  df = diff -- ':!package-lock.json' ':!yarn.lock'
-  df-idx = diff --cached # diff changes staged in the Git Index
-  lo = log --graph --oneline
-  lo-ls = log --oneline --name-status # list commits’ files
-  object = cat-file -p # git object’s properties
-  st = status
-  type = cat-file -t # git object’s type
-
+	editor = $EDITOR
+	filemode = false
 [pull]
-  ff = only
-
+	ff = only
 [push]
-  default = simple
-  autoSetupRemote = true
+	default = simple
+[submodule]
+	recurse = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = auto
+[alias]
+	# config/users
+	whoami = !git config user.name && git config user.email
 
-[advice]
-  statusHints = false
+	# commit {{
+	ci = commit -v
+	wip = !git add -A && git commit -m "WIP"
+	checkpoint = !git add -A && git commit -m "Checkpoint $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+	# }}
+
+	co = checkout
+	df = diff
+	lo = log --graph --oneline
+	lo-ls = log --oneline --name-status # list commits’ files
+	st = status -sb
 
 [init]
 	defaultBranch = main
@@ -36,8 +43,17 @@
 [checkout]
 	defaultRemote = origin
 
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[diff]
+	tool = kitty
+	guitool = kitty.gui
+
+[difftool]
+	prompt = false
+	trustExitCode = true
+
+[difftool "kitty"]
+	cmd = kitty +kitten diff $LOCAL $REMOTE
+
+[difftool "kitty.gui"]
+	cmd = kitty kitty +kitten diff $LOCAL $REMOTE
+
