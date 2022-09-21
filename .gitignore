@@ -1,0 +1,50 @@
+# Ignore everything by default.
+*
+
+# Add back items as needed.
+
+# Config - include base ~/.config and every file in its root, but not dirs unless explicit.
+!.config/
+!.config/*
+.config/*/
+
+# .local/bin
+!.local/bin/
+!.local/bin/**
+
+# bash
+!.bash_profile
+!.bashrc
+
+# bat
+!.config/bat
+!.config/bat/**
+
+# git
+!.gitignore
+!.github/
+!.github/**
+!.config/git
+!.config/git/**
+
+# kitty
+!.config/kitty
+!.config/kitty/**
+
+# npm
+!.config/npm
+!.config/npm/**
+
+# nvim
+!.config/nvim
+!.config/nvim/**
+
+# zsh
+!.zshenv
+!.config/zsh
+!.config/zsh/**
+
+# Always ignore the following
+*.bak
+*_local
+*.local
