@@ -1,9 +1,0 @@
-# vim: filetype=zsh
-typeset -U path
-path=(
-    $path
-    $CARGO_HOME/bin
-    $DENO_INSTALL_ROOT
-    $GOPATH/bin
-    $PNPM_HOME
-)
