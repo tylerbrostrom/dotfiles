@@ -71,6 +71,7 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim", commit = "05e70bc283471d27c905383a02185934a68ab496" } -- shims together mason and nvim-lspconfig
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
 
+  use 'gpanders/editorconfig.nvim'
   -- Null-ls
   use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- hook non-LSP tools into the LSP
   use {
