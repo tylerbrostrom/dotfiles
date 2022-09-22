@@ -9,17 +9,18 @@
 
 ## Setup
 
-1. Clone this repository
+1. Clone the bare repo
 
     ```sh
-    GIT_DIR=$HOME/.dotfiles git clone --bare https://github.com/tylerbrostrom/dotfiles.git
+    git clone --bare git@github.com:tylerbrostrom/dotfiles $HOME/.dotfiles.git
     ```
 
 2. Checkout files
 
     ```sh
-    GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME git checkout
+    git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME checkout
     ```
+
 3. Install Homebrew
 
     ```sh
@@ -40,20 +41,20 @@
 
 ## Making Changes
 
-Instead of `git`, use `dot`.
+Instead of `git`, use `dotf`.
 
 - It’s _just_ an alias for `git` (where `GIT_DIR=$HOME/.dotfiles` and `GIT_WORK_TREE=$HOME`)
 
     ```sh
-    dot status
-    dot commit -v
+    dotf status
+    dotf commit -v
     ```
 
 - Git aliases still work
 
     ```sh
-    dot st
-    dot ci
+    dotf st
+    dotf ci
     ```
 
 - Works regardless of current working directory
