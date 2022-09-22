@@ -3,13 +3,41 @@ root = true
 [*]
 charset = utf-8
 end_of_line = lf
-indent_size = 4
 indent_style = tab
+indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{json,yml,yaml,md}]
+[{makefile,Makefile,MAKEFILE}]
+indent_style = tab
+
+[**/bin/*]
+indent_style = space
+indent_size = 2
+
+[*.{md,markdown}]
+# don't trim end spacing because Markdown uses that
+indent_style = space
+trim_trailing_whitespace = false
+
+[*.{sh,bash,zsh}]
+indent_style = space
+indent_size = 2
+
+[.zsh*,.config/zsh/**/*]
+indent_style = space
+indent_size = 2
+
+[.bash*]
+indent_style = space
+indent_size = 2
+
+[*.{py,json,yaml,yml}]
+indent_style = space
+indent_size = 4
+
+[*.vim]
 indent_style = space
 
-[*.md]
-max_line_length = 80
+[*.{todo,taskpaper}]
+indent_style = tab
