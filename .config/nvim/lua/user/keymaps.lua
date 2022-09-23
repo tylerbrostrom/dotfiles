@@ -51,9 +51,6 @@ nnoremap("<leader>ft", function () require'telescope.builtin'.live_grep() end, o
 nnoremap("<leader>fp", function () require'telescope'.extensions.projects.projects() end, opts)
 nnoremap("<leader>fb", function () require'telescope.builtin'.buffers() end, opts)
 
--- Git
-nnoremap("<leader>gg", function () _LAZYGIT_TOGGLE() end, opts)
-
 -- Comment
 nnoremap("<leader>/", function () require'Comment.api'.toggle.linewise.current() end, opts)
 xnoremap("<leader>/", function ()
