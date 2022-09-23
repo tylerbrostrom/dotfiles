@@ -10,11 +10,15 @@ vim.opt.tabstop = 4
 
 vim.opt.smartindent = true
 
-vim.opt.fileencoding = "utf-8"
+vim.opt.wrap = false
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.undofile = true
+-- Makes for smoother UI. Default of 4000 ms is noticeably janky.
+-- Since we're not writing to a swapfile, there's no harm in making it shorter.
+vim.opt.updatetime = 300
 
 -- Search
 vim.opt.hlsearch = false
@@ -30,39 +34,25 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 
---[[ Cmp ]]
+-- Popup menus
 vim.opt.completeopt = { "menuone", "noselect" }
-
 vim.opt.pumheight = 10
-
---[[ vim.opt.splitbelow = true ]]
---[[ vim.opt.splitright = true ]]
-
-
-vim.opt.timeoutlen = 1000                       -- time to wait for a mapped sequence to complete (in milliseconds)
-
--- Default (4000 ms) is noticeably janky
-vim.opt.updatetime = 300                        -- faster completion (4000ms default)
-
-
+-- Mark column 80
 vim.opt.colorcolumn = "80"
-
 -- Hide info which was made redundant by Lualine plugin
 vim.opt.showmode = false
 vim.opt.showcmd = false
 vim.opt.ruler = false
-
+-- Prevents jank
 vim.opt.signcolumn = "yes"
-
-vim.opt.wrap = false
-
+-- Keep a margin between the window and the cursor
 vim.opt.scrolloff = 8
 
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.fillchars.eob=" "
+--Don't pass messages to |ins-completion-menu|
 vim.opt.shortmess:append "c"
-vim.opt.whichwrap:append("<,>,[,],h,l")
-vim.opt.iskeyword:append("-")
+-- Show tabs and spaces
 vim.opt.list = true
 vim.opt.listchars = {
 	eol = '↲',
@@ -74,3 +64,6 @@ vim.opt.listchars = {
 	conceal = '┊',
 	nbsp = '☠'
 }
+
+--[[ vim.opt.whichwrap:append("<,>,[,],h,l") ]]
+--[[ vim.opt.iskeyword:append("-") ]]
