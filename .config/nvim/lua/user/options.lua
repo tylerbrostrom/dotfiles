@@ -3,7 +3,6 @@ vim.opt.guicursor = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
 
---[[ vim.opt.smarttab = false ]]
 vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
@@ -47,6 +46,8 @@ vim.opt.ruler = false
 vim.opt.signcolumn = "yes"
 -- Keep a margin between the window and the cursor
 vim.opt.scrolloff = 8
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.fillchars.eob=" "
