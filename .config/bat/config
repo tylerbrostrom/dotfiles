@@ -1,4 +1,4 @@
---theme='Tokyo Night'
+--theme=Catppuccin-mocha
 --italic-text=always
 # TODO(https://github.com/sharkdp/bat/issues/2223)
 --map-syntax '/Users/**/.config/zsh/conf.d/*:Bourne Again Shell (bash)'

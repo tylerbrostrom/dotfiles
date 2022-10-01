@@ -59,10 +59,7 @@ return packer.startup(function(use)
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
 	-- Colorschemes
-	use {
-		"folke/tokyonight.nvim",
-		"ellisonleao/gruvbox.nvim",
-	}
+	use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- Completion
 	use {
