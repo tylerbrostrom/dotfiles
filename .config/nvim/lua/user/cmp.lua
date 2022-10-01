@@ -1,14 +1,7 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-	return
-end
+local cmp = require "cmp"
+local luasnip = require "luasnip"
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-	return
-end
-
-require("luasnip/loaders/from_vscode").lazy_load()
+require "luasnip/loaders/from_vscode".lazy_load()
 
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
@@ -51,8 +44,6 @@ cmp.setup({
 	},
 
 	mapping = cmp.mapping.preset.insert({
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -75,10 +66,7 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, {
-			"i",
-			"s",
-		}),
+		end, { "i", "s", }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -87,10 +75,7 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, {
-			"i",
-			"s",
-		}),
+		end, { "i", "s", }),
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
