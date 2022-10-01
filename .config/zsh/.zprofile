@@ -1,3 +1,5 @@
+export DOTFILES_GIT_DIR=$HOME/.dotfiles.git
+
 export VISUAL=nvim
 export EDITOR=nvim
 export PAGER=less
