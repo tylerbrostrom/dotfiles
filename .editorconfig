@@ -24,7 +24,7 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 
-[.zsh*,.config/zsh/**/*]
+[{.zshenv,.config/zsh/**}]
 indent_style = space
 indent_size = 2
 
