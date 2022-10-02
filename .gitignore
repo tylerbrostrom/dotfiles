@@ -39,6 +39,10 @@
 !.config/nvim
 !.config/nvim/**
 
+# ripgrep
+!.config/ripgrep
+!.config/ripgrep/**
+
 # zsh
 !.zshenv
 !.config/zsh

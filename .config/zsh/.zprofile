@@ -28,6 +28,7 @@ export HOMEBREW_NO_GITHUB_API=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 export PNPM_HOME=$HOME/.pnpm
+export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config
 
 # Ensure path arrays do not contain duplicates
 typeset -gU cdpath fpath mailpath path
