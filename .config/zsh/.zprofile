@@ -7,8 +7,10 @@ export PAGER=less
 export LESS='-i -s -S -R'
 
 export CARGO_HOME=$HOME/.cargo
+
 export DENO_DIR=$HOME/.deno
 export DENO_INSTALL_ROOT=$DENO_DIR/bin
+
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git'
 export FZF_DEFAULT_OPTS=" \
   --layout=reverse \
@@ -45,6 +47,4 @@ path=(
   $N_PREFIX/bin
 )
 
-# My Zsh vars
 export ZFUNCDIR=${ZFUNCDIR:-${ZDOTDIR:-$HOME/.config/zsh}/functions}
-export ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-~}/.zplugins}
