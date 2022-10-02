@@ -27,19 +27,22 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_GITHUB_API=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 
-export PNPM_HOME=$HOME/.pnpm
+export N_PREFIX=$HOME/.n
+export N_PRESERVE_NPM=1
+export N_PRESERVE_COREPACK=1
+
 export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config
 
 # Ensure path arrays do not contain duplicates
 typeset -gU cdpath fpath mailpath path
 
 path=(
-	$HOME/.local/bin
-	$path
-	$CARGO_HOME/bin
-	$DENO_INSTALL_ROOT
-	$GOPATH/bin
-	$PNPM_HOME
+  $HOME/.local/bin
+  $path
+  $CARGO_HOME/bin
+  $DENO_INSTALL_ROOT
+  $GOPATH/bin
+  $N_PREFIX/bin
 )
 
 # My Zsh vars
