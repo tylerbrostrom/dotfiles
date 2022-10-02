@@ -16,6 +16,8 @@
     ```
 
 2. Checkout files
+   
+   >Be sure to move/backup any files which would be overwritten by the following checkout! 
 
     ```sh
     git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME checkout
@@ -27,11 +29,11 @@
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
-4. Install dependencies specified by `~/.Brewfile`
+4. Open a new shell and install dependencies specified by `~/.Brewfile`
 
     ```sh
     zsh
-    beer up
+    brew bundle -g install
     ```
 
 5. Install Fonts
@@ -41,39 +43,21 @@
 
 ## Making Changes
 
-Instead of `git`, use `dotf`.
+Use `dotf` instead of `git`
 
-- It’s _just_ an alias for `git` (where `GIT_DIR=$HOME/.dotfiles` and `GIT_WORK_TREE=$HOME`)
+- `dotf` is a shell alias for `git` where `GIT_DIR=$HOME/.dotfiles.git` and `GIT_WORK_TREE=$HOME`
 
     ```sh
     dotf status
     dotf commit -v
     ```
 
-- Git aliases still work
+- `git` aliases still work too
 
     ```sh
     dotf st
     dotf ci
     ```
-
-- Works regardless of current working directory
-- Zsh completions still work
-
-## Managing Dependencies
-
-Instead of `brew`, use `beer`.
-
-```
-beer - Manage global Homebrew dependencies specified by ~/.Brewfile
-
-USAGE:
-beer up       Upgrade outdated deps; install missing deps
-beer sync     Remove unspecified deps; install missing deps
-beer check    Check for outdated, missing, or unspecified deps
-beer ls       List deps by type: formula, cask, tap
-beer ls-tree  List formulas and their dependencies
-```
 
 ## Acknowledgements
 
