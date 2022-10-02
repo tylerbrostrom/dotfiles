@@ -45,6 +45,7 @@ cask_args require_sha: true
 
 # these casks have checksums
 cask "1password", args: { appdir: "/Applications" }
+cask "1password-cli"
 cask "brave-browser"
 cask "docker"
 cask "imagealpha"
