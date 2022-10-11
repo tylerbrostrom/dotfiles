@@ -7,7 +7,7 @@ require "user.keymaps"
 require "user.plugins"
 require "user.autocommands"
 
-local catppuccin = vim.F.npcall(require, "catpuccinn")
+local catppuccin = vim.F.npcall(require, "catppuccin")
 if catppuccin then
 	catppuccin.setup()
 	vim.g.catppuccin_flavour = "mocha"
