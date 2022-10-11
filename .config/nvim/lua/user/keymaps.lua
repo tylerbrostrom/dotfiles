@@ -16,8 +16,8 @@ nnoremap("<C-k>", "<C-w>k", opts)
 nnoremap("<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-nnoremap("<C-Up>", ":resize -2<CR>", opts)
-nnoremap("<C-Down>", ":resize +2<CR>", opts)
+nnoremap("<C-Up>", ":resize +2<CR>", opts)
+nnoremap("<C-Down>", ":resize -2<CR>", opts)
 nnoremap("<C-Left>", ":vertical resize -2<CR>", opts)
 nnoremap("<C-Right>", ":vertical resize +2<CR>", opts)
 
