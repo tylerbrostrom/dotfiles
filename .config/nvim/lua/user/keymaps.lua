@@ -21,10 +21,6 @@ nnoremap("<C-Down>", ":resize +2<CR>", opts)
 nnoremap("<C-Left>", ":vertical resize -2<CR>", opts)
 nnoremap("<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
-nnoremap("<S-l>", ":bnext<CR>", opts)
-nnoremap("<S-h>", ":bprevious<CR>", opts)
-
 -- Clear highlights
 nnoremap("<leader>h", "<cmd>nohlsearch<CR>", opts)
 
