@@ -30,7 +30,7 @@ vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
 -- More space for displaying messages
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 
 -- Popup menus
@@ -49,8 +49,6 @@ vim.opt.scrolloff = 8
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
-vim.opt.fillchars.eob=" "
 --Don't pass messages to |ins-completion-menu|
 vim.opt.shortmess:append "c"
 -- Show tabs and spaces
@@ -66,5 +64,5 @@ vim.opt.listchars = {
 	nbsp = '☠'
 }
 
---[[ vim.opt.whichwrap:append("<,>,[,],h,l") ]]
---[[ vim.opt.iskeyword:append("-") ]]
+--vim.opt.whichwrap:append("<,>,[,],h,l")
+--vim.opt.iskeyword:append("-")

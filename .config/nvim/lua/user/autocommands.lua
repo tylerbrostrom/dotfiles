@@ -1,15 +1,17 @@
+local nnoremap = require "user.keymap".nnoremap
+
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-local group = vim.api.nvim_create_augroup("PackerUserConfig", {clear = true})
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "plugins.lua",
 	command = "source <afile> | PackerCompile",
-	group = group,
+	group = vim.api.nvim_create_augroup("PackerUserConfig", {clear = true})
 })
 
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
 	callback = function()
+		nnoremap("q", ":close", { silent = true })
 		vim.cmd [[
 		nnoremap <silent> <buffer> q :close<CR>
 		set nobuflisted

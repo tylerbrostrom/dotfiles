@@ -1,25 +1,20 @@
 local M = {}
 
-local function bind(mode, recursive_opts)
-  ---@param lhs string
-  ---@param rhs string|function
-  ---@param opts? table
-  return function (lhs, rhs, opts)
-    opts = vim.tbl_extend("keep",
-      recursive_opts,
-      opts or {}
-    )
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
+local bind = function(mode, remap)
+	---@param lhs string
+	---@param rhs string|function
+	---@param opts? table
+	---@see |vim.keymap.set()|
+	return function(lhs, rhs, opts)
+		opts = vim.tbl_extend("force", opts or {}, { remap = remap }) -- enforce remap option
+		vim.keymap.set(mode, lhs, rhs, opts)
+	end
 end
 
-local RECURSIVE = {remap = true, noremap = false}
-local NOT_RECURSIVE = {remap = false, noremap = true}
-
-M.nmap = bind("n", RECURSIVE)
-M.nnoremap = bind("n", NOT_RECURSIVE)
-M.vnoremap = bind("v", NOT_RECURSIVE)
-M.xnoremap = bind("x", NOT_RECURSIVE)
-M.inoremap = bind("i", NOT_RECURSIVE)
+M.nmap = bind("n", true)
+M.nnoremap = bind("n", false)
+M.vnoremap = bind("v", false)
+M.xnoremap = bind("x", false)
+M.inoremap = bind("i", false)
 
 return M

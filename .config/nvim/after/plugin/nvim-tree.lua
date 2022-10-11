@@ -1,6 +1,9 @@
-local tree_cb = require "nvim-tree.config".nvim_tree_callback
+local nvim_tree = vim.F.npcall(require, "nvim-tree")
+if not nvim_tree then return end
 
-require "nvim-tree".setup {
+local tree_cb = require("nvim-tree.config").nvim_tree_callback
+
+require("nvim-tree").setup {
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,

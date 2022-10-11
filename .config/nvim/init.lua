@@ -1,21 +1,23 @@
+pcall(require, "impatient")
+
+vim.g.mapleader = " "
+
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.autocommands"
-require "user.colorscheme"
-require "user.cmp"
+
+local catppuccin = vim.F.npcall(require, "catpuccinn")
+if catppuccin then
+	catppuccin.setup()
+	vim.g.catppuccin_flavour = "mocha"
+	vim.cmd [[colorscheme catppuccin]]
+end
+
 require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.lualine"
-require "user.project"
-require "user.impatient"
-require "user.illuminate"
-require "user.indentline"
-require "user.alpha"
+require "user.telescope.mappings"
+
 require "user.lsp"
+
+require "user.diagnostic"
 require "user.dap"
