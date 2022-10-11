@@ -1,5 +1,21 @@
 vim.opt.guicursor = ""
 
+-- Set cursorline, but only for the current buffer!
+vim.opt.cursorline = true
+local cursorline_augroup = vim.api.nvim_create_augroup("CursorlineControl", { clear = true })
+local set_cursorline = function (event, value, pattern)
+	vim.api.nvim_create_autocmd(event, {
+		group = cursorline_augroup,
+		pattern = pattern,
+		callback = function ()
+			vim.opt_local.cursorline = value
+		end
+	})
+end
+set_cursorline("WinLeave", false)
+set_cursorline("WinEnter", true)
+set_cursorline("FileType", false, "TelescopePrompt")
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
