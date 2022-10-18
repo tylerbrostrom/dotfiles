@@ -3,13 +3,11 @@ vim.opt.guicursor = ""
 -- Set cursorline, but only for the current buffer!
 vim.opt.cursorline = true
 local cursorline_augroup = vim.api.nvim_create_augroup("CursorlineControl", { clear = true })
-local set_cursorline = function (event, value, pattern)
+local set_cursorline = function(event, value, pattern)
 	vim.api.nvim_create_autocmd(event, {
 		group = cursorline_augroup,
 		pattern = pattern,
-		callback = function ()
-			vim.opt_local.cursorline = value
-		end
+		callback = function() vim.opt_local.cursorline = value end,
 	})
 end
 set_cursorline("WinLeave", false)
@@ -46,7 +44,7 @@ vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
 -- More space for displaying messages
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 
 -- Popup menus
@@ -55,10 +53,7 @@ vim.opt.pumheight = 10
 -- Mark column 80
 vim.opt.colorcolumn = "80"
 -- Hide info which was made redundant by Lualine plugin
-vim.opt.showmode = false
-vim.opt.showcmd = false
-vim.opt.ruler = false
--- Prevents jank
+-- Always show sign column
 vim.opt.signcolumn = "yes"
 -- Keep a margin between the window and the cursor
 vim.opt.scrolloff = 8
@@ -67,7 +62,7 @@ vim.opt.splitright = true
 
 --Don't pass messages to |ins-completion-menu|
 vim.opt.shortmess:append "c"
--- Show tabs and spaces
+-- Show tab characters
 vim.opt.list = true
 vim.opt.listchars = {
 	eol = '↲',

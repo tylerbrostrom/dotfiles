@@ -1,10 +1,10 @@
-local nnoremap = require "user.keymap".nnoremap
+local nnoremap = require("user.keymap").nnoremap
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "plugins.lua",
 	command = "source <afile> | PackerCompile",
-	group = vim.api.nvim_create_augroup("PackerUserConfig", {clear = true})
+	group = vim.api.nvim_create_augroup("PackerUserConfig", { clear = true }),
 })
 
 -- Use 'q' to quit from common plugins
@@ -32,14 +32,10 @@ vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTre
 
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-	callback = function()
-		vim.cmd "set formatoptions-=cro"
-	end,
+	callback = function() vim.cmd "set formatoptions-=cro" end,
 })
 
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-	callback = function()
-		vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
-	end,
+	callback = function() vim.highlight.on_yank { higroup = "Visual", timeout = 200 } end,
 })
