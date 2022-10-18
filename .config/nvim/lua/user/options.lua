@@ -65,14 +65,12 @@ vim.opt.shortmess:append "c"
 -- Show tab characters
 vim.opt.list = true
 vim.opt.listchars = {
-	eol = '↲',
-	tab = '» ',
-	trail = '·',
-	space = '·',
-	extends = '…',
-	precedes = '…',
-	conceal = '┊',
-	nbsp = '☠'
+	tab = "» ",
+	trail = "·",
+	extends = "…",
+	precedes = "…",
+	conceal = "┊",
+	nbsp = "☠",
 }
 
 --vim.opt.whichwrap:append("<,>,[,],h,l")
