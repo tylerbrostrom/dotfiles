@@ -1,4 +1,6 @@
-pcall(require, "impatient")
+pcall(require, "impatient") -- Caches Lua modules for faster startup
+
+if require "user.packer_was_just_downloaded"() then return end
 
 vim.g.mapleader = " "
 
@@ -9,9 +11,9 @@ require "user.autocommands"
 
 local catppuccin = vim.F.npcall(require, "catppuccin")
 if catppuccin then
-	catppuccin.setup()
+	catppuccin.setup {}
 	vim.g.catppuccin_flavour = "mocha"
-	vim.cmd [[colorscheme catppuccin]]
+	vim.api.nvim_command "colorscheme catppuccin"
 end
 
 require "user.telescope"

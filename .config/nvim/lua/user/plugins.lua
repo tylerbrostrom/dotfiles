@@ -1,12 +1,5 @@
-local packer_was_just_installed = (function()
-	local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-	if vim.fn.empty(vim.fn.glob(install_path)) == 0 then return false end
-	vim.fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
-	vim.cmd [[packadd packer.nvim]]
-	return true
-end)()
-
 local packer = require "packer"
+_ = vim.cmd [[packadd packer.nvim]]
 
 -- Have packer use a popup window
 packer.init {
@@ -19,17 +12,28 @@ return packer.startup(function(use)
 	use {
 		"wbthomason/packer.nvim", -- Package manager
 		"lewis6991/impatient.nvim", -- Speeds up Neovim startup time
-		"RRethy/vim-illuminate", -- Highlights words under the cursor
 		"gpanders/editorconfig.nvim", -- Reads and applies .editorconfig
 		"windwp/nvim-autopairs", -- Autopairs (brackets, quotes, etc.)
-		"nvim-lualine/lualine.nvim", -- Status line
-		"akinsho/bufferline.nvim", -- UI for showing open  buffers
 		"moll/vim-bbye", -- Delete buffers without closing windows
 		"ahmedkhalf/project.nvim", -- Automatically change into project dirs
 		"goolord/alpha-nvim", -- UI for editor startup
-		"kyazdani42/nvim-tree.lua", -- File explorer
-		"kyazdani42/nvim-web-devicons", -- Icons
+		"edluffy/hologram.nvim", -- Image viewer (compatible w/ Kitty terminal)
 	}
+
+	-- File explorer
+	use {
+		"kyazdani42/nvim-tree.lua",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	}
+
+	-- Status line
+	use {
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	}
+
+	-- Buffer navigation
+	use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 
 	-- UI to select things (files, grep results, open buffers, etc.)
 	use {
@@ -81,23 +85,32 @@ return packer.startup(function(use)
 		"JoosepAlviste/nvim-ts-context-commentstring", -- Sets commentstring option based on cursor position
 	}
 
-	-- Language Server Protocol
+	-- Language Server Protocol (LSP)
 	use {
-		"neovim/nvim-lspconfig", -- Provides LSP configs
-		"jose-elias-alvarez/null-ls.nvim", -- Interface for setting up arbitrary LSP sources
-		"williamboman/mason.nvim", -- Installs tool binaries (LSP, DAP, and otherwise)
-		"williamboman/mason-lspconfig.nvim", -- Shims together mason and nvim-lspconfig
-		"jayp0521/mason-null-ls.nvim", -- Shims together mason and null-ls
+		-- Provide LSP configs
+		"neovim/nvim-lspconfig",
+		-- Hook arbitrary sources into LSP
+		"jose-elias-alvarez/null-ls.nvim",
+		-- Provide code actions for refactoring
+		{
+			"ThePrimeagen/refactoring.nvim",
+			requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+		},
 	}
 
-	-- Provides code actions for refactoring
-	use { "ThePrimeagen/refactoring.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } }
-
-	-- Debugger
+	-- Debugger Adapter Protocol (DAP)
 	use {
 		"mfussenegger/nvim-dap", -- Debug Adapter Protocol (DAP) client
 		"rcarriga/nvim-dap-ui",
+		"theHamsta/nvim-dap-virtual-text",
+		"nvim-telescope/telescope-dap.nvim",
 	}
 
-	if packer_was_just_installed then packer.sync() end
+	-- Install and configure LSP, DAP, and other tools
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim", -- Shims together mason and nvim-lspconfig
+		"jayp0521/mason-null-ls.nvim", -- Shims together mason and null-ls
+		"jayp0521/mason-nvim-dap.nvim", -- Shims together mason and dap
+	}
 end)
