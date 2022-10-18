@@ -38,11 +38,8 @@ local function custom_attach(_client, _bufnr)
 	nnoremap("<leader>lq", vim.diagnostic.setloclist)
 end
 
-local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
-
 -- Completion configuration
-updated_capabilities.textDocument.completion.completionItem.snippetSupport = true
-require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
+local updated_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason-lspconfig").setup {
 	ensure_installed = {
